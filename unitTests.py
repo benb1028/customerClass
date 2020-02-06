@@ -1,7 +1,10 @@
 from customer import customerList
 
 cl = customerList()
-d = {'fanme':'Testguy', 'lname':'test', 'email':'no@clarkson.edu',\
-     'password':'12345', 'subscribed':'1'}
-cl.add(d)
-print(cl.data)
+cl.set('fname', 'TYestguy')
+cl.set('lname', 'test')
+cl.set('email', 'a@a.com')
+cl.set('password', '123')
+cl.set('subscribed', 'True')
+cl.add()
+cl.insert()
