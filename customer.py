@@ -45,10 +45,29 @@ class customerList:
     def verifyNew(self, n = 0):
         if len(self.data[n]['fname']) == 0:
             self.errorlist.append("First name cannot be blank.")
-        # add if statements for validation of all fields
-        # add unit test
+        if len(self.data[n]['lname']) == 0:
+            self.errorlist.append("Last name cannot be blank.")
+        if len(self.data[n]['email']) == 0:
+            self.errorlist.append("Email cannot be blank.")
+        if len(self.data[n]['password']) == 0:
+            self.errorlist.append("Password cannot be blank.")
             
-        if len(self.errorlist) < 0:
+        if len(self.data[n]['fname']) > 50:
+            self.errorlist.append("First name must be less than 50 characters.")
+        if len(self.data[n]['lname']) > 50:
+            self.errorlist.append("Last name must be less than 50 characters.")
+        if len(self.data[n]['email']) > 50:
+            self.errorlist.append("Email must be less than 50 characters.")
+        if len(self.data[n]['password']) > 100:
+            self.errorlist.append("Password must be less than 100 characters.")
+            
+        if self.data[n]['subscribed'] not in ['True', 'False']:
+            self.errorlist.append("Subscribed field must be True or False.")
+            
+        if len(self.errorlist) > 0:
+            for error in self.errorlist:
+                print(error)
+            self.errorlist = []
             return False
         else:
             return True
